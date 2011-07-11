@@ -191,6 +191,11 @@
       <artifactId>openengsb-core-persistence</artifactId>
       <scope>test</scope>
     </dependency>
+     <dependency>
+      <groupId>org.openengsb.core</groupId>
+      <artifactId>openengsb-core-console</artifactId>
+      <scope>test</scope>
+    </dependency>
     <dependency>
       <groupId>org.openengsb.domain</groupId>
       <artifactId>openengsb-domain-example</artifactId>

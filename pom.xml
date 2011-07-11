@@ -262,6 +262,11 @@
         <version>1.3.0-SNAPSHOT</version>
       </dependency>
       <dependency>
+        <groupId>org.openengsb.core</groupId>
+        <artifactId>openengsb-core-console</artifactId>
+        <version>1.3.0-SNAPSHOT</version>
+      </dependency>
+      <dependency>
         <groupId>org.openengsb.domain</groupId>
         <artifactId>openengsb-domain-auditing</artifactId>
         <version>1.3.0-SNAPSHOT</version>
