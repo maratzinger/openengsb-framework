@@ -23,4 +23,7 @@
   <repository>mvn:org.apache.karaf.assemblies.features/standard/${karaf.version}/xml/features</repository>
   <repository>mvn:org.apache.karaf.assemblies.features/enterprise/${karaf.version}/xml/features</repository>
   <repository>mvn:org.openengsb/openengsb/${project.version}/xml/features</repository>
+  <feature name="apache-felix-commands" version="${project.version}" >
+    <bundle>mvn:org.apache.felix/org.apache.felix.gogo.runtime/0.6.1</bundle>
+  </feature>
 </features>
