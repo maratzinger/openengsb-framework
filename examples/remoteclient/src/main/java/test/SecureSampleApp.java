@@ -46,6 +46,7 @@ import org.openengsb.core.api.model.BeanDescription;
 import org.openengsb.core.api.remote.MethodCall;
 import org.openengsb.core.api.remote.MethodCallRequest;
 import org.openengsb.core.api.remote.MethodResult;
+import org.openengsb.core.api.remote.MethodResultMessage;
 import org.openengsb.core.api.security.DecryptionException;
 import org.openengsb.core.api.security.EncryptionException;
 import org.openengsb.core.api.security.model.AuthenticationInfo;
@@ -146,8 +147,8 @@ public final class SecureSampleApp {
         try {
             decryptedContent = CipherUtils.decrypt(Base64.decodeBase64(resultString), sessionKey);
         } catch (DecryptionException e) {
-            System.err.println(resultString);
-            throw e;
+            MethodResultMessage resultMessage = new MethodResultMessage(new MethodResult(resultString), "");
+            return SecureResponse.create(resultMessage);
         }
         SecureResponse resultMessage = MAPPER.readValue(decryptedContent, SecureResponse.class);
         return resultMessage;
@@ -194,17 +195,25 @@ public final class SecureSampleApp {
      * Small-test client that can be used for sending jms-messages to a running openengsb
      */
     public static void main(String[] args) throws Exception {
+        callTestLog("admin", "password", "Hello World!");
+    }
+
+    public static MethodResult callTestLog(String username, String password, String message) throws JMSException,
+        IOException,
+        InterruptedException,
+        ClassNotFoundException,
+        EncryptionException, DecryptionException {
         LOGGER.info("initializing");
         init();
         LOGGER.info("initialized");
         MethodCall methodCall =
-            new MethodCall("doSomething", new Object[]{ "Hello World!" }, ImmutableMap.of("serviceId",
+            new MethodCall("doSomething", new Object[]{ message }, ImmutableMap.of("serviceId",
                 "example+example+testlog", "contextId", "foo"));
         LOGGER.info("calling method");
-        MethodResult methodResult = call(methodCall, new UsernamePasswordAuthenticationInfo("admin", "password"));
+        MethodResult methodResult = call(methodCall, new UsernamePasswordAuthenticationInfo(username, password));
         System.out.println(methodResult);
-
         stop();
+        return methodResult;
     }
 
     private SecureSampleApp() {
