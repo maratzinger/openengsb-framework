@@ -50,27 +50,14 @@ public class SwingUI {
         inputPanel.setLayout(groupLayout);
         frame.add(inputPanel);
 
-        // JPanel usernamePanel = new JPanel(new FlowLayout());
-        // inputPanel.add(usernamePanel, BoxLayout.Y_AXIS);
-
         JLabel usernameLabel = new JLabel("username");
         final JTextField username = new JTextField(50);
-        //
-        // username.setMaximumSize(new Dimension(50, (int) username.getPreferredSize().getHeight()));
-        // username.setMinimumSize(new Dimension(500, (int) username.getPreferredSize().getHeight()));
-
-        // inputPanel.add(usernameLabel);
-        // inputPanel.add(username);
 
         JLabel passwordLabel = new JLabel("password");
         final JTextField password = new JTextField(50);
-        // inputPanel.add(passwordLabel)
-        // inputPanel.add(password);
 
         JLabel messageLabel = new JLabel("message");
         final JTextArea message = new JTextArea(5, 50);
-        // inputPanel.add(messageLabel);
-        // inputPanel.add(message);
 
         final JTextArea result = new JTextArea(" ");
         result.setOpaque(false);
@@ -106,7 +93,7 @@ public class SwingUI {
             .addGroup(groupLayout.createParallelGroup()
                 .addComponent(usernameLabel)
                 .addComponent(username)
-                )
+            )
             .addGroup(groupLayout.createParallelGroup()
                 .addComponent(passwordLabel)
                 .addComponent(password)
