@@ -133,7 +133,10 @@
     <bundle>mvn:org.apache.aries.transaction/org.apache.aries.transaction.wrappers/${aries.transaction.version}</bundle>
     <bundle>mvn:org.apache.aries.jndi/org.apache.aries.jndi/${aries.jndi.version}</bundle>
     <bundle>mvn:org.openengsb.infrastructure/openengsb-infrastructure-jpa/${project.version}</bundle>
-    <bundle>mvn:com.mysema.querydsl/com.mysema.querydsl/${querydsl.wrapped.version}</bundle>
+    <bundle>mvn:com.mysema.querydsl/querydsl-apt/${querydsl.version}</bundle>
+    <bundle>mvn:com.mysema.querydsl/querydsl-core/${querydsl.version}</bundle>
+    <bundle>mvn:com.mysema.querydsl/querydsl-sql/${querydsl.version}</bundle>
+    <bundle>mvn:com.mysema.querydsl/querydsl-jpa/${querydsl.version}</bundle>
 
     <bundle>mvn:org.openengsb.core/openengsb-core-api/${project.version}</bundle>
     <bundle>mvn:org.openengsb.core/openengsb-core-edb/${project.version}</bundle>
